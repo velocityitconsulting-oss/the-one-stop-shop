@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>One Stop Shop | Streaming & Digital Services</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-blue: #0984e3;
+            --light-blue: #74b9ff;
+            --accent-gold: #f39c12;
+            --text-dark: #2d3436;
+            --text-light: #636e72;
+            --glass-bg: rgba(255, 255, 255, 0.85);
+            --glass-border: rgba(255, 255, 255, 0.4);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        /* Animated Light Blue Gradient Background */
+        body {
+            background: linear-gradient(-45deg, #a8c0ff, #3f2b96, #74b9ff, #e0f7fa);
+            background-size: 400% 400%;
+            animation: gradientBG 15s ease infinite;
+            color: var(--text-dark);
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+
+        @keyframes gradientBG {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* --- HEADER --- */
+        header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .tagline {
+            font-size: 1.2rem;
+            font-weight: 500;
+            letter-spacing: 1px;
+            color: #f1f2f6;
+            background: rgba(0, 0, 0, 0.2);
+            display: inline-block;
+            padding: 0.5rem 1.5rem;
+            border-radius: 50px;
+            backdrop-filter: blur(5px);
+        }
+
+        /* --- LAYOUT --- */
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        /* --- GLASSMORPHISM CARDS --- */
+        .card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--glass-border);
+            border-radius: 20px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Card Headers */
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px dashed rgba(9, 132, 227, 0.3);
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            color: var(--primary-blue);
+        }
+
+        .card-title {
+            font-size: 1.5rem;
+            color: var(--primary-blue);
+            text-transform: uppercase;
+            font-weight: 800;
+        }
+
+        /* Service Sub-sections */
+        .service-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .service-title {
+            font-weight: 700;
+            color: var(--text-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+
+        .pricing-list {
+            list-style: none;
+            font-size: 0.95rem;
+        }
+
+        .pricing-list li {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.4rem 0;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            color: var(--text-light);
+        }
+
+        .price {
+            font-weight: 700;
+            color: var(--primary-blue);
+        }
+
+        /* Special Highlights */
+        .highlight-badge {
+            background: var(--accent-gold);
+            color: white;
+            font-size: 0.75rem;
+            padding: 0.2rem 0.5rem;
+            border-radius: 10px;
+            font-weight: bold;
+            margin-left: 5px;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            background: linear-gradient(135deg, var(--light-blue), var(--primary-blue));
+            color: white;
+            border: none;
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 4px 15px rgba(9, 132, 227, 0.4);
+            margin-top: 1rem;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background: linear-gradient(135deg, var(--primary-blue), #0652dd);
+            transform: scale(1.02);
+            box-shadow: 0 6px 20px rgba(9, 132, 227, 0.6);
+            color: white;
+        }
+
+        /* --- FOOTER --- */
+        footer {
+            background: rgba(0, 0, 0, 0.6);
+            backdrop-filter: blur(10px);
+            text-align: center;
+            padding: 2rem;
+            color: white;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-item {
+            font-size: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .contact-item a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-item a:hover {
+            color: var(--accent-gold);
+        }
+
+        .contact-item i {
+            color: var(--accent-gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 { font-size: 2.5rem; }
+            .contact-info { gap: 1rem; flex-direction: column; align-items: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>One Stop Shop</h1>
+        <p class="tagline">Streaming & Digital Services Everywhere</p>
+    </header>
+
+    <main class="container">
+        <div class="grid">
+            
+            <article class="card">
+                <div class="card-header">
+                    <i class="fa-solid fa-headphones card-icon"></i>
+                    <h2 class="card-title">Audio & Music</h2>
+                </div>
+                
+                <div class="service-group">
+                    <div class="service-title"><i class="fa-brands fa-spotify" style="color:#1db954;"></i> Spotify Premium</div>
+                    <ul class="pricing-list">
+                        <li><span>1 Month (For Tetiary Students)</span> <span class="price">GHC 35</span></li>
+                        <li><span>1 Month</span> <span class="price">GHC 50</span></li>
+                        <li><span>2 Months</span> <span class="price">GHC 100</span></li>
+                        <li><span>3 Months</span> <span class="price">GHC 150</span></li>
+                        <li><span>6 Months</span> <span class="price">GHC 350</span></li>
+                    </ul>
+                    <a href="https://wa.me/233504709785?text=Hello%20One%20Stop%20Shop!%20I%20am%20interested%20in%20your%20services%20regarding:%20*Spotify%20Premium*.%20Could%20you%20provide%20more%20details%20on%20how%20to%20proceed%3F" class="btn" target="_blank">Buy Spotify</a>
+                </div>
+
+                <div class="service-group">
+                    <div class="service-title"><i class="fa-brands fa-apple" style="color:#fc3c44;"></i> Apple Music</div>
+                    <ul class="pricing-list">
+                        <li><span>1 Month (For Tertiary Students)</span> <span class="price">GHC 35</span></li>
+                        <li><span>1 Month</span> <span class="price">GHC 50</span></li>
+                        <li><span>2 Months</span> <span class="price">GHC 80</span></li>
+                        <li><span>3 Months</span> <span class="price">GHC 120</span></li>
+                        <li><span>4 Months</span> <span class="price">GHC 170</span></li>
+                        <li><span>6 Months</span> <span class="price">GHC 200</span></li>
+                        <li><span>1 Year</span> <span class="price">GHC 500</span></li>
+                    </ul>
+                    <a href="https://wa.me/233504709785?text=Hello%20One%20Stop%20Shop!%20I%20am%20interested%20in%20your%20services%20regarding:%20*Apple%20Music*.%20Could%20you%20provide%20more%20details%20on%20how%20to%20proceed%3F" class="btn" target="_blank">Buy Apple Music</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <i class="fa-solid fa-tv card-icon"></i>
+                    <h2 class="card-title">Video Accounts</h2>
+                </div>
+                
+                <div class="service-group">
+                    <div class="service-title" style="color: #E50914;">Netflix <span class="highlight-badge">Shared</span></div>
+                    <ul class="pricing-list">
+                        <li><span>1 Month</span> <span class="price">GHC 45</span></li>
+                        <li><span>2 Months</span> <span class="price">GHC 100</span></li>
+                        <li><span>3 Months</span> <span class="price">GHC 170</span></li>
+                        <li><span>1 Year</span> <span class="price">GHC 400</span></li>
+                    </ul>
+                    <a href="https://chat.whatsapp.com/IdwVdG9nH1aERZ2lWDfuaa" class="btn" target="_blank" style="margin-bottom: 1.5rem;">Join Shared Group</a>
+
+                    <div class="service-title" style="color: #E50914;">Netflix <span class="highlight-badge" style="background:#0984e3;">Personal</span></div>
+                    <ul class="pricing-list">
+                        <li><span>Personal Account</span> <span class="price">GHC 200</span></li>
+                    </ul>
+                    <a href="https://wa.me/233504709785?text=Hello%20One%20Stop%20Shop!%20I%20am%20interested%20in%20your%20services%20regarding:%20*Netflix%20Personal*.%20Could%20you%20provide%20more%20details%20on%20how%20to%20proceed%3F" class="btn" target="_blank">Buy Personal Account</a>
+                </div>
+
+                <div class="service-group" style="margin-top: 1.5rem;">
+                    <div class="service-title" style="color: #00A8E1;">Prime Video <span class="highlight-badge">Shared</span></div>
+                    <ul class="pricing-list">
+                        <li><span>1 Month</span> <span class="price">GHC 50</span></li>
+                        <li><span>3 Months</span> <span class="price">GHC 120</span></li>
+                        <li><span>6 Months / 1 Year</span> <span class="price">GHC 200</span></li>
+                    </ul>
+                    <a href="https://wa.me/233504709785?text=Hello%20One%20Stop%20Shop!%20I%20am%20interested%20in%20your%20services%20regarding:%20*Prime%20Video*.%20Could%20you%20provide%20more%20details%20on%20how%20to%20proceed%3F" class="btn" target="_blank">Buy Prime Video</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <i class="fa-solid fa-gamepad card-icon"></i>
+                    <h2 class="card-title">Digital Apps & VPNs</h2>
+                </div>
+
+                <div class="service-group">
+                    <div class="service-title">Entertainment & Tools</div>
+                    <ul class="pricing-list">
+                        <li><span>Apple Arcade (3 Mos)</span> <span class="price">GHC 50</span></li>
+                        <li><span>Apple TV+ (3 Mos)</span> <span class="price">GHC 80</span></li>
+                        <li><span>Showmax (1 Month)</span> <span class="price">GHC 50</span></li>
+                        <li><span>Google Voice</span> <span class="price">GHC 250</span></li>
+                        <li><span>Text Plus</span> <span class="price">GHC 20</span></li>
+                    </ul>
+                </div>
+
+                <div class="service-group">
+                    <div class="service-title">Privacy & Security</div>
+                    <ul class="pricing-list">
+                        <li><span>PIA VPN</span> <span class="price">GHC 50</span></li>
+                        <li><span>PIA S5 Proxy</span> <span class="price">Contact Us</span></li>
+                    </ul>
+                    <a href="https://wa.me/233504709785?text=Hello%20One%20Stop%20Shop!%20I%20am%20interested%20in%20your%20services%20regarding:%20*Digital%20Apps%20and%20VPNs*.%20Could%20you%20provide%20more%20details%20on%20how%20to%20proceed%3F" class="btn" target="_blank">Inquire Services</a>
+                </div>
+            </article>
+
+            <article class="card">
+                <div class="card-header">
+                    <i class="fa-brands fa-snapchat card-icon" style="color: #eccc68;"></i>
+                    <h2 class="card-title">Storage & Social</h2>
+                </div>
+
+                <div class="service-group">
+                    <div class="service-title">Snapchat Plus</div>
+                    <ul class="pricing-list">
+                        <li><span>1 Month</span> <span class="price">GHC 30</span></li>
+                        <li><span>1 Year (iPhone)</span> <span class="price">GHC 60</span></li>
+                        <li><span>1 Year (Android)</span> <span class="price">GHC 80</span></li>
+                    </ul>
+                </div>
+
+                <div class="service-group">
+                    <div class="service-title">Cloud Storage</div>
+                    <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 10px;">Available Sizes: 50GB, 200GB, 2TB</p>
+                    <a href="https://wa.me/233504709785?text=Hello%20One%20Stop%20Shop!%20I%20am%20interested%20in%20your%20services%20regarding:%20*Snapchat%20or%20Cloud%20Storage*.%20Could%20you%20provide%20more%20details%20on%20how%20to%20proceed%3F" class="btn" target="_blank">Buy Subscriptions</a>
+                </div>
+            </article>
+
+            <article class="card" style="grid-column: 1 / -1;">
+                <div class="card-header">
+                    <i class="fa-solid fa-screwdriver-wrench card-icon"></i>
+                    <h2 class="card-title">Tech & Additional Services</h2>
+                </div>
+                <div class="grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1rem;">
+                    <ul class="pricing-list">
+                        <li><span><i class="fa-solid fa-mobile-screen"></i> ESIM Activation</span></li>
+                        <li><span><i class="fa-solid fa-unlock-keyhole"></i> iCloud Removal</span></li>
+                        <li><span><i class="fa-solid fa-tower-cell"></i> iPhone Unlocking</span></li>
+                    </ul>
+                    <ul class="pricing-list">
+                        <li><span><i class="fa-solid fa-rocket"></i> Social Media Page Boosting</span></li>
+                        <li><span><i class="fa-solid fa-globe"></i> Foreign Numbers for Verification</span></li>
+                        <li><span><i class="fa-solid fa-wifi"></i> Non-Expiry Data (MTN, AT, T)</span></li>
+                    </ul>
+                </div>
+                <a href="https://wa.me/233504709785?text=Hello%20One%20Stop%20Shop!%20I%20am%20interested%20in%20your%20services%20regarding:%20*Tech%20and%20Additional%20Services*.%20Could%20you%20provide%20more%20details%20on%20how%20to%20proceed%3F" class="btn" style="max-width: 300px; margin: 1.5rem auto 0; display: block;" target="_blank">Contact Tech Support</a>
+            </article>
+
+        </div>
+    </main>
+
+    <footer>
+        <h3 style="margin-bottom: 1rem; color: var(--light-blue);">Ready to Upgrade Your Digital Life?</h3>
+        <div class="contact-info">
+            <div class="contact-item">
+                <i class="fa-brands fa-snapchat"></i> Ski_kwesii
+            </div>
+            <div class="contact-item">
+                <a href="https://wa.me/233504709785" target="_blank">
+                    <i class="fa-brands fa-whatsapp"></i> 0504709785
+                </a>
+            </div>
+        </div>
+        <p style="font-size: 0.8rem; color: #aaa; margin-top: 1rem;">© 2026 One Stop Shop. *T and Cs apply.</p>
+    </footer>
+
+</body>
+</html>
